@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much Should I Tip? | The Universal Tipping Guide 2025</title>
+<meta name="description" content="The definitive tipping guide for every situation. Smart calculator for restaurants, delivery, Uber, hotels, movers, salons & 20+ more services. Get the right tip amount instantly.">
+<meta name="keywords" content="how much to tip, tipping guide, tip calculator, restaurant tip, delivery tip, uber tip, hotel tip">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --cream: #faf7f0;
+    --warm: #f5efe0;
+    --gold: #c9973a;
+    --gold-light: #e8c97a;
+    --gold-pale: #fdf3d8;
+    --rust: #b84c2a;
+    --sage: #4a6650;
+    --sage-light: #e8f0ea;
+    --border: #e2d9c8;
+    --muted: #8a7d6b;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 7vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  header h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  header p {
+    font-size: 17px;
+    color: #c8bfb0;
+    max-width: 560px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .header-deco {
+    position: absolute;
+    top: -40px; right: -60px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,151,58,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ─── NAV TABS ─── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    border-bottom: 1px solid rgba(201,151,58,0.3);
+  }
+  .nav-scroll {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .nav-scroll::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #9a8f80;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    background: none;
+    border-top: none; border-left: none; border-right: none;
+  }
+  .nav-tab.active, .nav-tab:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ─── MAIN LAYOUT ─── */
+  main { width: 100%; }
+  /* legacy — kept for any direct main padding refs */
+
+  /* ─── CALCULATOR ─── */
+  .calc-section {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin: 40px 0 48px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(26,18,8,0.07);
+  }
+  .calc-header {
+    background: linear-gradient(135deg, var(--ink) 0%, #2d2318 100%);
+    padding: 28px 32px;
+  }
+  .calc-header h2 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .calc-header p { color: #9a8f80; font-size: 14px; }
+  .calc-body { padding: 28px 32px; }
+
+  .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .calc-row.three { grid-template-columns: 1fr 1fr 1fr; }
+  @media(max-width: 600px) {
+    .calc-row, .calc-row.three { grid-template-columns: 1fr; }
+    .calc-body { padding: 20px; }
+    .calc-header { padding: 20px; }
+  }
+
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .field input, .field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--cream);
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: var(--gold-pale);
+  }
+  .field.input-dollar { position: relative; }
+  .field.input-dollar::before {
+    content: '$';
+    position: absolute;
+    left: 14px; top: 38px;
+    font-size: 15px; color: var(--muted);
+    pointer-events: none;
+  }
+  .field.input-dollar input { padding-left: 26px; }
+
+  .quality-row { display: flex; gap: 8px; margin-bottom: 16px; }
+  .quality-row label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+  .quality-btn {
+    flex: 1; padding: 10px 6px; border: 1.5px solid var(--border);
+    border-radius: 8px; background: var(--cream); cursor: pointer;
+    font-size: 13px; font-weight: 500; color: var(--muted);
+    transition: all 0.15s; text-align: center;
+  }
+  .quality-btn:hover { border-color: var(--gold); color: var(--ink); }
+  .quality-btn.active { background: var(--gold-pale); border-color: var(--gold); color: var(--ink); font-weight: 600; }
+
+  .calc-result {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .result-main { }
+  .result-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7a6f60; margin-bottom: 4px; }
+  .result-amount {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .result-pct { font-size: 14px; color: #9a8f80; margin-top: 4px; }
+  .result-breakdown { display: flex; gap: 20px; }
+  .result-col { text-align: center; }
+  .result-col .val { font-size: 20px; font-weight: 600; color: #c8bfb0; }
+  .result-col .lbl { font-size: 11px; color: #7a6f60; text-transform: uppercase; letter-spacing: 0.08em; }
+  .result-range { }
+  .range-bar { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+  .range-pill {
+    padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
+    background: rgba(201,151,58,0.15); color: var(--gold-light);
+  }
+  .range-pill.mid { background: rgba(201,151,58,0.35); }
+  .range-label { font-size: 11px; color: #7a6f60; margin-top: 4px; }
+
+  /* ─── SERVICE SECTIONS ─── */
+  .section { margin-bottom: 56px; scroll-margin-top: 60px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .icon { font-size: 22px; }
+  .section-intro { color: var(--muted); font-size: 15px; margin: 12px 0 24px; }
+
+  .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: box-shadow 0.2s, transform 0.15s;
+    cursor: default;
+  }
+  .service-card:hover { box-shadow: 0 6px 24px rgba(26,18,8,0.09); transform: translateY(-2px); }
+  .service-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .service-card .tip-range {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+  .service-card .tip-note { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .service-card .context-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .badge-required { background: #fde8e3; color: var(--rust); }
+  .badge-expected { background: var(--gold-pale); color: #9a6a10; }
+  .badge-optional { background: var(--sage-light); color: var(--sage); }
+
+  /* ─── QUICK REFERENCE TABLE ─── */
+  .ref-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  .ref-table th {
+    text-align: left; padding: 10px 14px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); background: var(--warm);
+    border-bottom: 1px solid var(--border);
+  }
+  .ref-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: top; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:hover td { background: var(--gold-pale); }
+  .tip-amt { font-weight: 700; color: var(--gold); font-size: 15px; }
+
+  /* ─── ETIQUETTE TIPS ─── */
+  .tip-box {
+    background: var(--warm);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .tip-box h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .tip-box p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  .context-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  @media(max-width: 560px) { .context-cards { grid-template-columns: 1fr; } }
+  .context-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .context-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .context-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* ─── FAQ ─── */
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; text-align: left; background: none; border: none;
+    padding: 18px 0; font-family: var(--font-body); font-size: 15px;
+    font-weight: 600; color: var(--ink); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-arrow { font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+  .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; padding-bottom: 18px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: #7a6f60;
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+  .calc-section, .section { animation: fadeUp 0.5s ease both; }
+
+  /* ─── CALLOUT BANNER ─── */
+  .truth-banner {
+    background: var(--rust);
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 32px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .truth-banner strong { font-weight: 700; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s, transform 0.5s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ═══════════════════════════════════════════════════════════════
+     AD LAYOUT SYSTEM
+     ───────────────────────────────────────────────────────────────
+     Architecture: sidebar layout on desktop, stacked on mobile.
+
+     DESKTOP (≥1100px):
+       .page-wrap  ─── flex row ──────────────────────────────────
+         .content-col   (max 860px, flex:1) — all page content
+         .sidebar-col   (300px, sticky)     — sidebar ad + bonus slot
+
+     MOBILE (<1100px):
+       Single-column. Sidebar collapses, in-content units fill gaps.
+
+     AD SLOTS (7 total):
+       1. leaderboard-top     — below calculator, above content   728×90
+       2. in-content-1        — after Restaurants section          336×280
+       3. in-content-2        — after Delivery section             336×280
+       4. in-content-3        — after Rides + Hotels section       336×280
+       5. in-content-4        — after Beauty + Home section        336×280
+       6. sidebar-primary     — sticky sidebar, scrolls with user  300×250
+       7. sidebar-secondary   — below sidebar primary, static      300×250
+       8. footer-strip        — above footer, full width           728×90
+
+     TO ACTIVATE AN AD UNIT:
+       1. Delete the entire <div class="ad-placeholder">...</div> inside the slot
+       2. Paste your AdSense / Ezoic <ins> or <script> tag in its place
+       3. The .ad-slot wrapper stays — it handles spacing and centering
+
+     ADSENSE EXAMPLE (replace data-ad-* values with your own):
+       <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+     EZOIC EXAMPLE:
+       <div id="ezoic-pub-ad-placeholder-XXX"></div>
+
+     LABELING NOTE: The <span class="ad-network-label"> inside each
+       placeholder is a visual reference only. Remove it with the placeholder.
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* ── Page wrapper: enables sidebar layout on wide screens ── */
+  .page-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .content-col {
+    flex: 1;
+    min-width: 0;
+    max-width: 860px;
+  }
+  .sidebar-col {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 72px; /* clears the sticky nav */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Hide sidebar on narrow screens — in-content units take over */
+  @media (max-width: 1099px) {
+    .page-wrap { padding: 0 24px 80px; display: block; }
+    .sidebar-col { display: none; }
+    .content-col { max-width: 900px; margin: 0 auto; }
+  }
+
+  /* ── Shared slot wrapper ── */
+  .ad-slot {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Slots collapse to zero height once placeholder is removed and
+       the ad hasn't loaded yet — the min-height below prevents layout jank */
+  }
+
+  /* Slot-specific sizing */
+  .ad-slot-leaderboard   { margin: 0 0 36px;  min-height: 90px;  }
+  .ad-slot-in-content    { margin: 36px 0;    min-height: 280px; }
+  .ad-slot-sidebar       { min-height: 250px; width: 300px;      }
+  .ad-slot-footer-strip  { margin: 48px 0 0;  min-height: 90px;  }
+
+  /* ── Placeholder visuals (delete with placeholder div when going live) ── */
+  .ad-placeholder {
+    width: 100%;
+    border: 1.5px dashed var(--border);
+    border-radius: 8px;
+    background: var(--warm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 12px;
+  }
+  .ad-slot-leaderboard  .ad-placeholder { height: 90px;  max-width: 728px; }
+  .ad-slot-in-content   .ad-placeholder { height: 280px; max-width: 336px; }
+  .ad-slot-sidebar      .ad-placeholder { height: 250px; max-width: 300px; }
+  .ad-slot-footer-strip .ad-placeholder { height: 90px;  max-width: 728px; }
+  .ad-slot-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .ad-slot-name {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+  .ad-slot-size {
+    font-size: 11px;
+    opacity: 0.45;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-deco"></div>
+  <div class="header-inner">
+    <p class="header-eyebrow">The Definitive Guide · Updated 2025</p>
+    <h1>How much should<br>you <em>really</em> tip?</h1>
+    <p>One page. Every situation. Smart calculator with context — because the right tip depends on a lot more than 20%.</p>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav" aria-label="Jump to section">
+  <div class="nav-scroll">
+    <button class="nav-tab active" onclick="scrollTo('calc')">Calculator</button>
+    <button class="nav-tab" onclick="scrollTo('food')">Restaurants</button>
+    <button class="nav-tab" onclick="scrollTo('delivery')">Delivery</button>
+    <button class="nav-tab" onclick="scrollTo('rides')">Rides</button>
+    <button class="nav-tab" onclick="scrollTo('hotel')">Hotels</button>
+    <button class="nav-tab" onclick="scrollTo('beauty')">Beauty</button>
+    <button class="nav-tab" onclick="scrollTo('home')">Home Services</button>
+    <button class="nav-tab" onclick="scrollTo('travel')">Travel</button>
+    <button class="nav-tab" onclick="scrollTo('cheatsheet')">Cheat Sheet</button>
+    <button class="nav-tab" onclick="scrollTo('faq')">FAQ</button>
+  </div>
+</nav>
+
+<main>
+<div class="page-wrap">
+<!-- ═══ CONTENT COLUMN ═══ -->
+<div class="content-col">
+
+<!-- CALCULATOR -->
+<div class="calc-section" id="calc">
+  <div class="calc-header">
+    <h2>Smart Tip Calculator</h2>
+    <p>Adjust for service quality, situation, and split — get a real dollar amount.</p>
+  </div>
+  <div class="calc-body">
+    <div class="calc-row">
+      <div class="field input-dollar">
+        <label>Bill amount</label>
+        <input type="number" id="bill" value="55" min="0" step="0.01" oninput="calculate()">
+      </div>
+      <div class="field">
+        <label>Service type</label>
+        <select id="service" onchange="calculate()">
+          <optgroup label="Food & Drink">
+            <option value="sitdown">Sit-down restaurant</option>
+            <option value="bar">Bar / bartender</option>
+            <option value="buffet">Buffet</option>
+            <option value="cafe">Café / counter service</option>
+            <option value="pizza">Pizza delivery</option>
+            <option value="delivery">Food delivery (app)</option>
+          </optgroup>
+          <optgroup label="Rides">
+            <option value="uber">Uber / Lyft</option>
+            <option value="taxi">Taxi / cab</option>
+            <option value="limo">Limo / black car</option>
+          </optgroup>
+          <optgroup label="Hotel">
+            <option value="housekeeper">Hotel housekeeper</option>
+            <option value="bellhop">Bellhop / porter</option>
+            <option value="concierge">Concierge</option>
+            <option value="valet">Valet parking</option>
+          </optgroup>
+          <optgroup label="Beauty & Wellness">
+            <option value="haircut">Haircut / styling</option>
+            <option value="massage">Massage therapist</option>
+            <option value="spa">Spa / nail tech</option>
+            <option value="tattoo">Tattoo artist</option>
+            <option value="barber">Barber</option>
+          </optgroup>
+          <optgroup label="Home Services">
+            <option value="movers">Movers</option>
+            <option value="cleaning">House cleaner</option>
+            <option value="doggroomer">Dog groomer</option>
+            <option value="plumber">Plumber / contractor</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Service quality</label>
+      <div class="quality-row">
+        <button class="quality-btn" data-q="poor" onclick="setQuality('poor',this)">😐 Poor</button>
+        <button class="quality-btn" data-q="fair" onclick="setQuality('fair',this)">🙂 Fair</button>
+        <button class="quality-btn active" data-q="good" onclick="setQuality('good',this)">😊 Good</button>
+        <button class="quality-btn" data-q="great" onclick="setQuality('great',this)">🤩 Exceptional</button>
+      </div>
+    </div>
+
+    <div class="calc-row three">
+      <div class="field">
+        <label>Split between</label>
+        <select id="split" onchange="calculate()">
+          <option value="1">Just me</option>
+          <option value="2">2 people</option>
+          <option value="3">3 people</option>
+          <option value="4">4 people</option>
+          <option value="5">5 people</option>
+          <option value="6">6 people</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>City type</label>
+        <select id="city" onchange="calculate()">
+          <option value="1.0">Average city</option>
+          <option value="1.15">Major metro (NYC, SF, LA)</option>
+          <option value="0.9">Small town / rural</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Difficulty / effort</label>
+        <select id="effort" onchange="calculate()">
+          <option value="1.0">Normal</option>
+          <option value="1.1">Somewhat difficult</option>
+          <option value="1.2">Very difficult</option>
+          <option value="0.9">Super easy order</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-result">
+      <div class="result-main">
+        <div class="result-label">Recommended tip</div>
+        <div class="result-amount" id="res-amount">$11.00</div>
+        <div class="result-pct" id="res-pct">20% · Good service</div>
+      </div>
+      <div class="result-breakdown">
+        <div class="result-col">
+          <div class="val" id="res-total">$66.00</div>
+          <div class="lbl">Total bill</div>
+        </div>
+        <div class="result-col">
+          <div class="val" id="res-each">$66.00</div>
+          <div class="lbl">Per person</div>
+        </div>
+      </div>
+      <div class="result-range">
+        <div class="range-label">Acceptable range</div>
+        <div class="range-bar">
+          <div class="range-pill" id="range-low">$8.25</div>
+          <div class="range-pill mid" id="range-mid">$11.00</div>
+          <div class="range-pill" id="range-high">$15.40</div>
+        </div>
+        <div class="range-label" style="margin-top:4px;">min · recommended · generous</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     AD SLOT 1 · leaderboard · 728×90
+     Position: below calculator, above first content section
+     Best for: high-visibility, seen by 100% of visitors
+     Replace .ad-placeholder contents with your ad unit code
+     ═══════════════════════════════════════════════════ -->
+<div class="ad-slot ad-slot-leaderboard" data-slot="leaderboard-top">
+  <div class="ad-placeholder">
+    <span class="ad-slot-tag">Ad slot 1</span>
+    <span class="ad-slot-name">Leaderboard Top</span>
+    <span class="ad-slot-size">728×90 · Leaderboard</span>
+    <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Seen by 100% of visitors — highest priority slot</span>
+    <span class="ad-slot-size" style="font-size:10px;">Replace with AdSense &lt;ins&gt; or Ezoic unit</span>
+  </div>
+</div>
+
+<!-- RESTAURANTS -->
+<section class="section reveal" id="food">
+  <h2 class="section-title"><span class="icon">🍽️</span> Restaurants & Dining</h2>
+  <p class="section-intro">Sit-down restaurants are where tipping is most expected in the US. Your server typically keeps 15–25% of their tips, sharing the rest with bussers and bartenders.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>Sit-down restaurant</h3>
+      <div class="tip-range">18–22%</div>
+      <p class="tip-note">15% for poor service, 20% for good, 25%+ for exceptional. Tip on the pre-tax total if you prefer.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Bar / bartender</h3>
+      <div class="tip-range">$1–2/drink</div>
+      <p class="tip-note">$1 per beer or simple drink, $2 for cocktails. 20% applies for a full tab or bottle service.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Buffet</h3>
+      <div class="tip-range">10%</div>
+      <p class="tip-note">You serve yourself, but staff clear plates and refill drinks. 10% is fair; tip in cash if you can.</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+    <div class="service-card">
+      <h3>Café / counter service</h3>
+      <div class="tip-range">0–15%</div>
+      <p class="tip-note">No obligation for drip coffee. For custom drinks (barista skill involved), $1 or 15% is appreciated.</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+    <div class="service-card">
+      <h3>Takeout (pickup)</h3>
+      <div class="tip-range">0–10%</div>
+      <p class="tip-note">No required tip for simple orders. 10–15% if the order is large, complex, or involves full prep.</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+    <div class="service-card">
+      <h3>Wine sommelier</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">Tip on the wine separately or as part of the full bill. Many sommeliers share in tip pool.</p>
+      <span class="context-badge badge-expected">Appreciated</span>
+    </div>
+  </div>
+
+  <div class="tip-box" style="margin-top:24px;">
+    <h4>💡 The tipping screen dilemma</h4>
+    <p>When a tablet prompts 18%, 20%, 25% at a counter, you're not obligated to tip at all. These screens are marketing — not a social contract. Use your judgment based on whether there's real service involved.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     AD SLOT 2 · in-content rectangle · 336×280
+     Position: between Restaurants and Delivery sections
+     Best for: highest CTR of all ad formats (large rectangle)
+     Replace .ad-placeholder contents with your ad unit code
+     ═══════════════════════════════════════════════════ -->
+<div class="ad-slot ad-slot-in-content" data-slot="in-content-1">
+  <div class="ad-placeholder">
+    <span class="ad-slot-tag">Ad slot 2</span>
+    <span class="ad-slot-name">In-Content 1</span>
+    <span class="ad-slot-size">336×280 · Large Rectangle</span>
+    <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Highest CTR format — after Restaurants section</span>
+    <span class="ad-slot-size" style="font-size:10px;">Replace with AdSense &lt;ins&gt; or Ezoic unit</span>
+  </div>
+</div>
+
+<!-- DELIVERY -->
+<section class="section reveal" id="delivery">
+  <h2 class="section-title"><span class="icon">🛵</span> Delivery</h2>
+  <p class="section-intro">Delivery tips go directly to the driver — not the restaurant. Apps often pay base wages as low as $2–3/delivery, making tips critical income.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>App delivery (DoorDash, Uber Eats, Grubhub)</h3>
+      <div class="tip-range">15–20% or $3–5 min</div>
+      <p class="tip-note">Never tip below $3–4 regardless of order size. 15–20% for normal. Add more for bad weather, stairs, or long distance.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Pizza / direct delivery</h3>
+      <div class="tip-range">$3–5 flat</div>
+      <p class="tip-note">$3 minimum for a short trip, $5+ for distance, large orders, or bad weather. Cash is king here.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Grocery delivery (Instacart, Shipt)</h3>
+      <div class="tip-range">10–15% or $5 min</div>
+      <p class="tip-note">Shoppers do significant labor. $5 minimum for small orders, 15% for larger. Tip for same-day service.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Amazon / package delivery</h3>
+      <div class="tip-range">Not expected</div>
+      <p class="tip-note">UPS, FedEx, and Amazon drivers are salaried. No tip expected. A holiday gift ($5–20) is a generous gesture.</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+  </div>
+
+  <div class="truth-banner">
+    <strong>Real talk:</strong> When apps suggest "0%" as the first option, drivers see that before accepting. Low tips often mean slower delivery — drivers can see the tip amount before taking the order.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     AD SLOT 3 · in-content rectangle · 336×280
+     Position: between Delivery and Rides sections
+     Best for: engaged readers mid-scroll, high viewability
+     Replace .ad-placeholder contents with your ad unit code
+     ═══════════════════════════════════════════════════ -->
+<div class="ad-slot ad-slot-in-content" data-slot="in-content-2">
+  <div class="ad-placeholder">
+    <span class="ad-slot-tag">Ad slot 3</span>
+    <span class="ad-slot-name">In-Content 2</span>
+    <span class="ad-slot-size">336×280 · Large Rectangle</span>
+    <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Engaged readers mid-scroll — after Delivery section</span>
+    <span class="ad-slot-size" style="font-size:10px;">Replace with AdSense &lt;ins&gt; or Ezoic unit</span>
+  </div>
+</div>
+
+<!-- RIDES -->
+<section class="section reveal" id="rides">
+  <h2 class="section-title"><span class="icon">🚗</span> Rides & Transportation</h2>
+  <p class="section-intro">Most ride-share drivers earn under $15/hr before tips after expenses. Tipping is increasingly expected.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>Uber / Lyft (standard)</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">Tip via the app after the ride. $1–2 for short trips. Add more for a clean car, great conversation, or help with bags.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Uber / Lyft (Black / XL)</h3>
+      <div class="tip-range">20%</div>
+      <p class="tip-note">Premium service warrants premium tips. 20% is standard; these drivers have higher costs and wait times.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Taxi / cab</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">Traditional taxis: 15–20% is expected. Cash preferred. Round up in cities where hailing is competitive.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Limo / private car</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">Even if gratuity is "included," additional cash tips are appreciated for great service, especially for events.</p>
+      <span class="context-badge badge-expected">Appreciated</span>
+    </div>
+    <div class="service-card">
+      <h3>Airport shuttle</h3>
+      <div class="tip-range">$2–3/person</div>
+      <p class="tip-note">$2 per person with luggage help. $3–5 for exceptional or private service.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Parking valet</h3>
+      <div class="tip-range">$2–5</div>
+      <p class="tip-note">$2 at drop-off and $2–5 at pickup (or just at pickup). More for a luxury vehicle or difficult lot.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOTEL -->
+<section class="section reveal" id="hotel">
+  <h2 class="section-title"><span class="icon">🏨</span> Hotels & Accommodations</h2>
+  <p class="section-intro">Hotel tipping is one of the most overlooked areas. Housekeeping staff are often poorly paid and rarely tipped.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>Housekeeper / maid</h3>
+      <div class="tip-range">$2–5/night</div>
+      <p class="tip-note">Leave daily (not at checkout) — staff rotates. $3–5 in upscale hotels, $2–3 budget hotels. Leave with a note.</p>
+      <span class="context-badge badge-expected">Appreciated</span>
+    </div>
+    <div class="service-card">
+      <h3>Bellhop / porter</h3>
+      <div class="tip-range">$1–2/bag</div>
+      <p class="tip-note">$2 per bag is standard. $5 minimum for any service. More for heavy luggage or multiple trips.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Concierge</h3>
+      <div class="tip-range">$5–20</div>
+      <p class="tip-note">$5 for basic recommendations. $10–20 for reservations, event tickets, or going well above and beyond.</p>
+      <span class="context-badge badge-optional">Situational</span>
+    </div>
+    <div class="service-card">
+      <h3>Room service</h3>
+      <div class="tip-range">15–20% or $5</div>
+      <p class="tip-note">Check if a service charge is already added. If yes, no extra tip needed. If not, 15–20% applies.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Pool / beach attendant</h3>
+      <div class="tip-range">$2–5</div>
+      <p class="tip-note">$2–3 for setting up chairs. $5 if they go out of their way (towels, umbrellas, drink orders).</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+    <div class="service-card">
+      <h3>Spa / hotel massage</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">Even if a service charge is added, many therapists don't see it. 15–20% cash tip is generous.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+  </div>
+</section>
+
+<!-- BEAUTY -->
+<section class="section reveal" id="beauty">
+  <h2 class="section-title"><span class="icon">✂️</span> Beauty & Wellness</h2>
+  <p class="section-intro">This is one of the highest-tip expectation categories. Many stylists rent their booth and tip is a major part of their income.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>Haircut / styling</h3>
+      <div class="tip-range">20–25%</div>
+      <p class="tip-note">Even if the stylist is the owner. $20%+ for a good cut. Note: shampoo assistants deserve $2–5 separately.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Barber</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">$3–5 on a $25 cut is the norm. More for beard work or extra time. Cash preferred at traditional barbers.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Massage therapist</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">$15–20% on the pre-discount price. If you got a Groupon, tip on the regular rate — don't penalize the therapist.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Nail tech (mani/pedi)</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">$5–10 on a $40–50 service. Cash tips are much preferred over card — often higher takeaway for the tech.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Tattoo artist</h3>
+      <div class="tip-range">15–25%</div>
+      <p class="tip-note">15% minimum, 20–25% for custom work. For a multi-session piece, tip at each session or give a lump sum at the end.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Eyebrow threading / waxing</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">$3–5 minimum on any service. Cash is much preferred and more likely to go directly to the technician.</p>
+      <span class="context-badge badge-required">Expected</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOME SERVICES -->
+<section class="section reveal" id="home">
+  <h2 class="section-title"><span class="icon">🏠</span> Home & Personal Services</h2>
+  <p class="section-intro">These situations are murkier — here's exactly what's appropriate.</p>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>Movers (local)</h3>
+      <div class="tip-range">$20–50/person</div>
+      <p class="tip-note">$20/person for a short easy move, $50+ for a full day of hard work. Provide water and snacks too. Pay cash.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>House cleaner (regular)</h3>
+      <div class="tip-range">10–15% or $10–20</div>
+      <p class="tip-note">Tip weekly if recurring service ($10–20/visit), or 15% for a one-time cleaning. Holiday bonus = 1 week's rate.</p>
+      <span class="context-badge badge-optional">Situational</span>
+    </div>
+    <div class="service-card">
+      <h3>Dog groomer</h3>
+      <div class="tip-range">15–20%</div>
+      <p class="tip-note">$5 minimum, 20% for a challenging dog. Groomers often work on commission and tips matter a lot.</p>
+      <span class="context-badge badge-expected">Expected</span>
+    </div>
+    <div class="service-card">
+      <h3>Dog walker</h3>
+      <div class="tip-range">10–20%</div>
+      <p class="tip-note">10–15% per walk for regular walkers. Holiday tip = 1 week's service. Extra for bad weather or emergencies.</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+    <div class="service-card">
+      <h3>Plumber / electrician / HVAC</h3>
+      <div class="tip-range">Not expected</div>
+      <p class="tip-note">Trade professionals set their own rates and generally don't expect tips. $20–50 cash for exceptional work is a kind gesture.</p>
+      <span class="context-badge badge-optional">Optional</span>
+    </div>
+    <div class="service-card">
+      <h3>Furniture / appliance delivery</h3>
+      <div class="tip-range">$10–20/person</div>
+      <p class="tip-note">$10–20 per person who helps carry items in. More for heavy pieces, stairs, or assembly.</p>
+      <span class="context-badge badge-expected">Appreciated</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     AD SLOT 4 · in-content rectangle · 336×280
+     Position: between Home Services and Travel sections
+     Best for: readers who are highly engaged (mid-deep scroll)
+     ═══════════════════════════════════════════════════ -->
+<div class="ad-slot ad-slot-in-content" data-slot="in-content-3">
+  <div class="ad-placeholder">
+    <span class="ad-slot-tag">Ad slot 4</span>
+    <span class="ad-slot-name">In-Content 3</span>
+    <span class="ad-slot-size">336×280 · Large Rectangle</span>
+    <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Replace with AdSense &lt;ins&gt; or Ezoic unit</span>
+  </div>
+</div>
+
+<!-- TRAVEL -->
+<section class="section reveal" id="travel">
+  <h2 class="section-title"><span class="icon">✈️</span> Travel & Tourism</h2>
+  <p class="section-intro">International norms vary — this section covers the US + common tourist scenarios.</p>
+
+  <div class="context-cards">
+    <div class="context-card">
+      <h4>Tour guides</h4>
+      <p>$5–10/person per half-day tour, $10–20/person for a full day. Private guide: $20–50+ depending on the experience.</p>
+    </div>
+    <div class="context-card">
+      <h4>Cruise staff</h4>
+      <p>Most cruises add a daily gratuity automatically ($15–25/day/person). Extra $5–10 cash for standout crew you interacted with.</p>
+    </div>
+    <div class="context-card">
+      <h4>Coat check</h4>
+      <p>$1–2 per item. $1 minimum even if there's already a fee charged. Have it ready — fumbling looks awkward.</p>
+    </div>
+    <div class="context-card">
+      <h4>Casino dealers</h4>
+      <p>Tipping is optional but common. Place a bet "for the dealer" or tip $1–5 chips periodically. Not mandatory.</p>
+    </div>
+    <div class="context-card">
+      <h4>Ski resort attendants</h4>
+      <p>Ski valets: $5–10 for equipment storage/retrieval. Lessons: 10–20%. Ski-in/ski-out hotel staff: same as hotel norms.</p>
+    </div>
+    <div class="context-card">
+      <h4>Tipping abroad</h4>
+      <p>Many countries (Japan, South Korea, parts of Europe) find tipping rude. Research your destination. Never tip in Japan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section class="section reveal" id="cheatsheet">
+  <h2 class="section-title"><span class="icon">📋</span> Quick Reference Cheat Sheet</h2>
+  <p class="section-intro">The complete picture at a glance — bookmark or screenshot this table.</p>
+  <div style="overflow-x:auto;">
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Standard tip</th>
+        <th>Minimum</th>
+        <th>Generous</th>
+        <th>Expected?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Sit-down restaurant</td><td class="tip-amt">18–22%</td><td>15%</td><td>25%+</td><td>Yes</td></tr>
+      <tr><td>Bartender</td><td class="tip-amt">$1–2/drink</td><td>$1</td><td>20%</td><td>Yes</td></tr>
+      <tr><td>Café / coffee counter</td><td class="tip-amt">$1 or 10–15%</td><td>$0</td><td>15%</td><td>Optional</td></tr>
+      <tr><td>Takeout</td><td class="tip-amt">0–10%</td><td>$0</td><td>15%</td><td>No</td></tr>
+      <tr><td>App delivery</td><td class="tip-amt">15–20% / $3–5 min</td><td>$3</td><td>$7+</td><td>Yes</td></tr>
+      <tr><td>Pizza delivery</td><td class="tip-amt">$3–5</td><td>$3</td><td>$8+</td><td>Yes</td></tr>
+      <tr><td>Grocery delivery</td><td class="tip-amt">10–15%</td><td>$5</td><td>20%</td><td>Yes</td></tr>
+      <tr><td>Uber / Lyft</td><td class="tip-amt">15–20%</td><td>$1</td><td>25%</td><td>Expected</td></tr>
+      <tr><td>Taxi / cab</td><td class="tip-amt">15–20%</td><td>15%</td><td>25%</td><td>Yes</td></tr>
+      <tr><td>Valet parking</td><td class="tip-amt">$2–5</td><td>$2</td><td>$10</td><td>Yes</td></tr>
+      <tr><td>Hotel housekeeper</td><td class="tip-amt">$2–5/night</td><td>$2</td><td>$8</td><td>Rarely done</td></tr>
+      <tr><td>Bellhop</td><td class="tip-amt">$1–2/bag</td><td>$2 total</td><td>$5</td><td>Yes</td></tr>
+      <tr><td>Concierge</td><td class="tip-amt">$5–20</td><td>$0</td><td>$25</td><td>Situational</td></tr>
+      <tr><td>Haircut / salon</td><td class="tip-amt">20–25%</td><td>15%</td><td>30%</td><td>Yes</td></tr>
+      <tr><td>Barber</td><td class="tip-amt">15–20%</td><td>$3</td><td>25%</td><td>Yes</td></tr>
+      <tr><td>Massage therapist</td><td class="tip-amt">15–20%</td><td>15%</td><td>25%</td><td>Yes</td></tr>
+      <tr><td>Nail tech</td><td class="tip-amt">15–20%</td><td>$5</td><td>25%</td><td>Yes</td></tr>
+      <tr><td>Tattoo artist</td><td class="tip-amt">15–25%</td><td>15%</td><td>30%</td><td>Yes</td></tr>
+      <tr><td>Dog groomer</td><td class="tip-amt">15–20%</td><td>$5</td><td>25%</td><td>Yes</td></tr>
+      <tr><td>Movers</td><td class="tip-amt">$20–50/person</td><td>$15</td><td>$75</td><td>Expected</td></tr>
+      <tr><td>House cleaner</td><td class="tip-amt">10–15%</td><td>$10</td><td>20%</td><td>Optional</td></tr>
+      <tr><td>Furniture delivery</td><td class="tip-amt">$10–20/person</td><td>$5</td><td>$25</td><td>Appreciated</td></tr>
+      <tr><td>Tour guide</td><td class="tip-amt">$10–20/person</td><td>$5</td><td>$25</td><td>Expected</td></tr>
+      <tr><td>Plumber / contractor</td><td class="tip-amt">Not expected</td><td>—</td><td>$20 cash</td><td>No</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section reveal" id="faq">
+  <h2 class="section-title"><span class="icon">❓</span> Tipping FAQ</h2>
+  <p class="section-intro">The questions people actually search for — answered honestly.</p>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Do I tip if the service was bad?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">Yes, but you can reduce it. 10–15% communicates dissatisfaction more clearly than $0. No tip sends an ambiguous signal — it looks like you forgot rather than that you were unhappy. Exception: truly terrible service caused by the server's behavior (not the kitchen) — $0 is then fair.</p>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Should I tip on the pre-tax or post-tax amount?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">Pre-tax is technically correct and what etiquette experts recommend — the server didn't provide more service because your city has higher taxes. In practice, the difference is small (~2%), and most people tip on the final amount. Either way is acceptable.</p>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Should I tip the owner of a salon or spa?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">Traditionally, no — owners set their own rates and aren't expected to receive tips. But this norm has shifted: many owners work the floor themselves and depend on tips like their staff. When in doubt, tip. They can always decline.</p>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What do I do when a gratuity is already added?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">If the receipt shows "service charge" or "gratuity included" (common for large parties), you don't need to add more. However, verify it's going to staff — some restaurants pocket service charges. An extra cash tip for exceptional service is always welcomed but never required.</p>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Cash vs. card tips — does it matter?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">Cash tips are almost always better for the worker. Card tips are subject to processing fees (1.5–3%), are taxable and tracked, and sometimes aren't distributed until payroll. Cash is immediate, untaxed in practice, and goes directly to the person. Always carry small bills.</p>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How much should I tip around the holidays?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">For regular service providers (cleaner, dog walker, mail carrier, teacher), a one-time holiday gift equivalent to one week's service cost is the gold standard. For mail/delivery people: $20–25 cash. Teachers: a personal gift or card. You don't need to tip at every service interaction — just the people who serve you regularly.</p>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is tipping culture in the US changing?<span class="faq-arrow">›</span></button>
+    <p class="faq-a">Yes — and not in one direction. Americans report tipping fatigue as tablet screens request tips at coffee shops and self-checkout kiosks. At the same time, awareness of low service wages has increased tipping in delivery and ride-share. The result: more confusion, not less. When in doubt, tip — the worker needs it more than you need the $3.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     AD SLOT 7 · footer strip · 728×90
+     Position: bottom of content column, above footer
+     Best for: capturing readers who scrolled the full page
+     ═══════════════════════════════════════════════════ -->
+<div class="ad-slot ad-slot-footer-strip" data-slot="footer-strip">
+  <div class="ad-placeholder">
+    <span class="ad-slot-tag">Ad slot 7</span>
+    <span class="ad-slot-name">Footer Strip</span>
+    <span class="ad-slot-size">728×90 · Leaderboard</span>
+    <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Replace this div with your AdSense &lt;ins&gt; or Ezoic placeholder</span>
+  </div>
+</div>
+
+</div><!-- /.content-col -->
+
+<!-- ═══ SIDEBAR COLUMN ═══ -->
+<aside class="sidebar-col" aria-label="Sidebar advertisements">
+
+  <!-- ═══════════════════════════════════════════════════
+       AD SLOT 5 · sidebar primary · 300×250
+       Position: sticky — follows user as they scroll
+       Best for: maximum impressions, seen throughout entire visit
+       ═══════════════════════════════════════════════════ -->
+  <div class="ad-slot ad-slot-sidebar" data-slot="sidebar-primary">
+    <div class="ad-placeholder">
+      <span class="ad-slot-tag">Ad slot 5</span>
+      <span class="ad-slot-name">Sidebar Primary</span>
+      <span class="ad-slot-size">300×250 · Medium Rectangle</span>
+      <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Sticky — visible entire session</span>
+      <span class="ad-slot-size" style="font-size:10px;">Replace with AdSense &lt;ins&gt; or Ezoic unit</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       AD SLOT 6 · sidebar secondary · 300×250
+       Position: below primary sidebar ad, static
+       Best for: second impression for engaged readers
+       ═══════════════════════════════════════════════════ -->
+  <div class="ad-slot ad-slot-sidebar" data-slot="sidebar-secondary">
+    <div class="ad-placeholder">
+      <span class="ad-slot-tag">Ad slot 6</span>
+      <span class="ad-slot-name">Sidebar Secondary</span>
+      <span class="ad-slot-size">300×250 · Medium Rectangle</span>
+      <span class="ad-slot-size" style="margin-top:4px;font-size:10px;">Below primary, static position</span>
+      <span class="ad-slot-size" style="font-size:10px;">Replace with AdSense &lt;ins&gt; or Ezoic unit</span>
+    </div>
+  </div>
+
+</aside><!-- /.sidebar-col -->
+
+</div><!-- /.page-wrap -->
+</main>
+
+<footer>
+  <p><strong>The Universal Tipping Guide 2025</strong></p>
+  <p>Based on US tipping norms and etiquette standards. Rates reflect current expectations in average American cities.<br>International norms vary significantly — always research local customs when traveling abroad.</p>
+</footer>
+
+<script>
+// ─── CALCULATOR DATA ───
+const services = {
+  sitdown:    { base: 0.20, min: 0.15, max: 0.28, label: "Sit-down restaurant" },
+  bar:        { base: 0.20, min: 0.15, max: 0.25, label: "Bar" },
+  buffet:     { base: 0.10, min: 0.05, max: 0.15, label: "Buffet" },
+  cafe:       { base: 0.10, min: 0.00, max: 0.15, label: "Café" },
+  pizza:      { flat: 4,    flatMin: 3, flatMax: 7, label: "Pizza delivery" },
+  delivery:   { base: 0.18, min: 0.12, max: 0.25, flatFloor: 3, label: "App delivery" },
+  uber:       { base: 0.18, min: 0.10, max: 0.25, label: "Uber/Lyft" },
+  taxi:       { base: 0.18, min: 0.15, max: 0.25, label: "Taxi" },
+  limo:       { base: 0.20, min: 0.15, max: 0.25, label: "Limo" },
+  housekeeper:{ flat: 4,    flatMin: 2, flatMax: 8, label: "Hotel housekeeper (per night)" },
+  bellhop:    { flat: 3,    flatMin: 2, flatMax: 6, label: "Bellhop (per bag)" },
+  concierge:  { flat: 10,   flatMin: 5, flatMax: 25, label: "Concierge" },
+  valet:      { flat: 4,    flatMin: 2, flatMax: 10, label: "Valet" },
+  haircut:    { base: 0.22, min: 0.18, max: 0.30, label: "Haircut/styling" },
+  massage:    { base: 0.20, min: 0.15, max: 0.25, label: "Massage" },
+  spa:        { base: 0.20, min: 0.15, max: 0.25, label: "Nail/spa tech" },
+  tattoo:     { base: 0.20, min: 0.15, max: 0.25, label: "Tattoo artist" },
+  barber:     { base: 0.18, min: 0.15, max: 0.25, label: "Barber" },
+  movers:     { flat: 35,   flatMin: 20, flatMax: 60, label: "Movers (per person)" },
+  cleaning:   { base: 0.15, min: 0.10, max: 0.20, flatFloor: 10, label: "House cleaner" },
+  doggroomer: { base: 0.18, min: 0.15, max: 0.25, flatFloor: 5, label: "Dog groomer" },
+  plumber:    { base: 0.00, min: 0.00, max: 0.05, label: "Plumber/contractor" },
+};
+
+const qualityMultipliers = { poor: 0.75, fair: 0.9, good: 1.0, great: 1.25 };
+const qualityLabels      = { poor: "Poor service", fair: "Fair service", good: "Good service", great: "Exceptional service" };
+let currentQuality = 'good';
+
+function setQuality(q, btn) {
+  currentQuality = q;
+  document.querySelectorAll('.quality-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  calculate();
+}
+
+function calculate() {
+  const bill    = parseFloat(document.getElementById('bill').value) || 0;
+  const svc     = services[document.getElementById('service').value];
+  const split   = parseInt(document.getElementById('split').value);
+  const city    = parseFloat(document.getElementById('city').value);
+  const effort  = parseFloat(document.getElementById('effort').value);
+  const qm      = qualityMultipliers[currentQuality];
+  const ql      = qualityLabels[currentQuality];
+
+  let tip, tipMin, tipMax, pct;
+
+  if (svc.flat) {
+    tip    = svc.flat   * qm * city * effort;
+    tipMin = svc.flatMin;
+    tipMax = svc.flatMax * city * effort;
+    pct    = bill > 0 ? Math.round((tip / bill) * 100) : 0;
+  } else {
+    const rate    = svc.base  * qm * city * effort;
+    const rateMin = svc.min;
+    const rateMax = svc.max   * city * effort;
+    tip    = bill * rate;
+    tipMin = bill * rateMin;
+    tipMax = bill * rateMax;
+    pct    = Math.round(rate * 100);
+    if (svc.flatFloor) { tip = Math.max(tip, svc.flatFloor); tipMin = Math.max(tipMin, svc.flatFloor * 0.7); }
+  }
+
+  const total = bill + tip;
+  const each  = total / split;
+
+  const fmt = v => '$' + v.toFixed(2);
+  document.getElementById('res-amount').textContent = fmt(tip);
+  document.getElementById('res-pct').textContent    = (pct > 0 ? pct + '% · ' : '') + ql;
+  document.getElementById('res-total').textContent  = fmt(total);
+  document.getElementById('res-each').textContent   = fmt(each);
+  document.getElementById('range-low').textContent  = fmt(tipMin);
+  document.getElementById('range-mid').textContent  = fmt(tip);
+  document.getElementById('range-high').textContent = fmt(tipMax);
+}
+
+// ─── FAQ ACCORDION ───
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+// ─── SMOOTH NAV ───
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// ─── SCROLL REVEAL ───
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Init
+calculate();
+</script>
+</body>
+</html>
