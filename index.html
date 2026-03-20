@@ -515,16 +515,16 @@
 <!-- STICKY NAV -->
 <nav class="sticky-nav" aria-label="Jump to section">
   <div class="nav-scroll">
-    <button class="nav-tab active" onclick="scrollTo('calc')">Calculator</button>
-    <button class="nav-tab" onclick="scrollTo('food')">Restaurants</button>
-    <button class="nav-tab" onclick="scrollTo('delivery')">Delivery</button>
-    <button class="nav-tab" onclick="scrollTo('rides')">Rides</button>
-    <button class="nav-tab" onclick="scrollTo('hotel')">Hotels</button>
-    <button class="nav-tab" onclick="scrollTo('beauty')">Beauty</button>
-    <button class="nav-tab" onclick="scrollTo('home')">Home Services</button>
-    <button class="nav-tab" onclick="scrollTo('travel')">Travel</button>
-    <button class="nav-tab" onclick="scrollTo('cheatsheet')">Cheat Sheet</button>
-    <button class="nav-tab" onclick="scrollTo('faq')">FAQ</button>
+    <button class="nav-tab active" onclick="jumpTo('calc',this)">Calculator</button>
+    <button class="nav-tab" onclick="jumpTo('food',this)">Restaurants</button>
+    <button class="nav-tab" onclick="jumpTo('delivery',this)">Delivery</button>
+    <button class="nav-tab" onclick="jumpTo('rides',this)">Rides</button>
+    <button class="nav-tab" onclick="jumpTo('hotel',this)">Hotels</button>
+    <button class="nav-tab" onclick="jumpTo('beauty',this)">Beauty</button>
+    <button class="nav-tab" onclick="jumpTo('home',this)">Home Services</button>
+    <button class="nav-tab" onclick="jumpTo('travel',this)">Travel</button>
+    <button class="nav-tab" onclick="jumpTo('cheatsheet',this)">Cheat Sheet</button>
+    <button class="nav-tab" onclick="jumpTo('faq',this)">FAQ</button>
   </div>
 </nav>
 
@@ -1151,8 +1151,14 @@
 </main>
 
 <footer>
+  <div style="display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap;">
+    <a href="about.html" style="color:var(--gold-light);text-decoration:none;font-size:13px;">About</a>
+    <a href="privacy.html" style="color:var(--gold-light);text-decoration:none;font-size:13px;">Privacy Policy</a>
+    <a href="contact.html" style="color:var(--gold-light);text-decoration:none;font-size:13px;">Contact</a>
+  </div>
   <p><strong>The Universal Tipping Guide 2025</strong></p>
   <p>Based on US tipping norms and etiquette standards. Rates reflect current expectations in average American cities.<br>International norms vary significantly — always research local customs when traveling abroad.</p>
+  <p style="margin-top:10px;">© 2025 The Universal Tipping Guide. All rights reserved.</p>
 </footer>
 
 <script>
@@ -1240,11 +1246,11 @@ function toggleFaq(btn) {
 }
 
 // ─── SMOOTH NAV ───
-function scrollTo(id) {
+function jumpTo(id, btn) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 
 // ─── SCROLL REVEAL ───
