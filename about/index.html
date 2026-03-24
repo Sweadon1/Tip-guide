@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | The Universal Tipping Guide</title>
+<meta name="description" content="About tip-right.com — why we built it, our editorial standards, and how we keep the advice honest and up to date.">
+<link rel="canonical" href="https://tip-right.com/about/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208; --cream: #faf7f0; --warm: #f5efe0;
+    --gold: #c9973a; --gold-light: #e8c97a; --gold-pale: #fdf3d8;
+    --rust: #b84c2a; --sage: #4a6650; --sage-light: #e8f0ea;
+    --border: #e2d9c8; --muted: #8a7d6b;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.7; }
+  header { background: var(--ink); position: relative; overflow: hidden; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 40px 24px 36px; position: relative; z-index: 1; }
+  .header-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
+  .header-eyebrow a { color: var(--gold-light); text-decoration: none; }
+  .header-eyebrow a:hover { text-decoration: underline; }
+  header h1 { font-family: var(--font-display); font-size: clamp(28px, 5vw, 46px); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 10px; }
+  header p { font-size: 15px; color: #9a8f80; font-weight: 300; }
+  .header-deco { position: absolute; top: -40px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(201,151,58,0.10) 0%, transparent 70%); pointer-events: none; }
+  main { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+  .lead { font-size: 19px; font-weight: 300; color: #3d3020; line-height: 1.75; margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .about-section { margin-bottom: 44px; }
+  .about-section h2 { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+  .about-section p { font-size: 15px; color: #3d3020; margin-bottom: 14px; line-height: 1.75; }
+  .about-section ul { padding-left: 20px; margin-bottom: 14px; }
+  .about-section ul li { font-size: 15px; color: #3d3020; margin-bottom: 8px; line-height: 1.65; }
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  @media(max-width: 560px) { .values-grid { grid-template-columns: 1fr; } }
+  .value-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .value-icon { font-size: 22px; margin-bottom: 10px; }
+  .value-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .value-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .stat-row { display: flex; gap: 0; background: var(--ink); border-radius: 12px; overflow: hidden; margin: 28px 0; }
+  .stat { flex: 1; padding: 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 4px; }
+  .stat-lbl { font-size: 12px; color: #7a6f60; }
+  .tip-box { background: var(--warm); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 20px; margin: 20px 0; font-size: 14px; color: #5a4010; line-height: 1.65; }
+  footer { background: var(--ink); color: #7a6f60; text-align: center; padding: 32px 24px; font-size: 13px; line-height: 1.8; }
+  footer strong { color: var(--gold-light); }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 12px; flex-wrap: wrap; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J5X7EKMYD8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J5X7EKMYD8');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9077660077889897" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <div class="header-deco"></div>
+  <div class="header-inner">
+    <p class="header-eyebrow"><a href="/">← The Universal Tipping Guide</a></p>
+    <h1>About this site</h1>
+    <p>Why we built it, and how we keep the advice honest.</p>
+  </div>
+</header>
+
+<main>
+  <p class="lead">
+    The Universal Tipping Guide exists because tipping in the United States is genuinely confusing — and getting more confusing every year. We built one honest, no-fluff page that answers the question properly: not just "what percentage," but the right amount for the specific situation you're actually in.
+  </p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">25+</div>
+      <div class="stat-lbl">Service categories covered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Free</div>
+      <div class="stat-lbl">Always, for everyone</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2025</div>
+      <div class="stat-lbl">Rates updated annually</div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>Why this site exists</h2>
+    <p>When you Google "how much to tip a dog groomer" or "should I tip the hotel housekeeper," you get a wall of 2,000-word blog posts padded with filler, or a generic "15–20%" answer that doesn't account for context at all.</p>
+    <p>The right tip for a pizza delivery in a snowstorm to a 5th-floor walkup in New York City is not the same as a curbside pickup on a Tuesday afternoon in a quiet suburb. No static blog post handles that. A smart calculator can.</p>
+    <p>We built this site to be the page we wished existed: every situation in one place, with context-aware recommendations and honest etiquette advice that doesn't hedge everything into uselessness.</p>
+  </div>
+
+  <div class="about-section">
+    <h2>Our editorial standards</h2>
+    <p>The tipping rates on this site are based on:</p>
+    <ul>
+      <li>Current US etiquette standards as documented by established etiquette authorities</li>
+      <li>Surveys of service industry workers to understand what they actually expect and need</li>
+      <li>Regional variation research — metro areas, small towns, and the differences between them</li>
+      <li>Annual review to account for inflation and shifting social norms</li>
+    </ul>
+    <div class="tip-box">
+      <strong>On advertising:</strong> This site displays ads to cover operating costs and keep the content free. Advertisers have zero influence over our editorial recommendations. No company pays to have higher tip percentages suggested.
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>What we believe</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">💬</div>
+        <h3>Honest answers</h3>
+        <p>We tell you when tipping is optional, when it's genuinely expected, and when it's not customary — without moralizing either way.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>Context matters</h3>
+        <p>The same service in different cities, weather conditions, or difficulty levels warrants a different tip. Our calculator reflects that.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔄</div>
+        <h3>Kept up to date</h3>
+        <p>Tipping norms shift. We review and update all rates at least once a year, and immediately when major industry changes occur.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔒</div>
+        <h3>Your privacy respected</h3>
+        <p>We collect only standard analytics data. We don't require an account. We don't sell your information. See our <a href="/privacy/" style="color:var(--gold);">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>Questions or corrections?</h2>
+    <p>If you spot a tip rate that seems off, a service category we're missing, or any error on the site, please let us know. We take corrections seriously and update the guide promptly when warranted.</p>
+    <p>Reach us at: <a href="/contact/" style="color:var(--gold);font-weight:600;">Contact page</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <p><strong>The Universal Tipping Guide</strong></p>
+  <p>© 2025 Tip Right. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
